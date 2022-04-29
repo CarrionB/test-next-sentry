@@ -7,6 +7,8 @@ Sentry.init({
   dsn: SENTRY_DSN || "https://b726042d5302435d802aebb08cbc8b43@o1223889.ingest.sentry.io/6368458",
   // We recommend adjusting this value in production, or using tracesSampler
   // for finer control
+  debug: true,
+  autoSessionTracking: true,
   tracesSampleRate: 1.0,
   // ...
   // Note: if you want to override the automatic release value, do not set a
