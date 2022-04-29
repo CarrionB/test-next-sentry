@@ -6,12 +6,8 @@ import * as Sentry from "@sentry/nextjs";
 
 const Home: NextPage = () => {
 
-  const thisWillFail = () => {
-    try {
-      throw new Error("Error de prueba")
-    } catch (err) {
-      Sentry.captureException(err);
-    }
+  const thisIsSupposedToFail = () => {
+    throw new Error("Error de prueba")
   }
   return (
     <div className={styles.container}>
@@ -25,7 +21,7 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        <button onClick={thisWillFail}>Enviar error</button>
+        <button onClick={thisIsSupposedToFail}>Enviar error</button>
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
