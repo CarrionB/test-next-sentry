@@ -7,7 +7,11 @@ import * as Sentry from "@sentry/nextjs";
 const Home: NextPage = () => {
 
   const thisWillFail = () => {
-    throw new Error("Error de prueba")
+    try {
+      throw new Error("Error de prueba")
+    } catch (err) {
+      Sentry.captureException(err);
+    }
   }
   return (
     <div className={styles.container}>
